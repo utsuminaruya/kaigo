@@ -1,14 +1,5 @@
 [
   {
-    "id": "job-001",
-    "title_ja": "介護スタッフ（初任者歓迎）",
-    "title_vi": "Nhân viên chăm sóc (chào đón người mới)",
-    "company": "メディケア横浜",
-    "city_ja": "神奈川県・横浜市",
-    "city_vi": "TP. Yokohama, Kanagawa",
-    "areaPref": "神奈川県",
-    "region": "関東",[
-  {
     "id": "job-201",
     "title_ja": "生活相談員 募集",
     "title_vi": "Tuyển dụng Life Consultant",
@@ -2106,63 +2097,6 @@
     "visa_friendly": true,
     "desc_ja": "夜勤専従介護士として利用者の生活支援、介助業務全般。教育体制あり。",
     "desc_vi": "Công việc Night Shift Caregiver: hỗ trợ sinh hoạt, chăm sóc người cao tuổi. Có chế độ đào tạo.",
-    "sample": false
-  }
-]
-    "tags": [
-      "介護",
-      "正社員",
-      "JLPT N3+",
-      "寮あり"
-    ],
-    "salary_ja": "月給 240000〜280000円",
-    "salary_vi": "Lương 240000–280000 yên/tháng",
-    "visa_friendly": true,
-    "desc_ja": "入浴・食事・排泄介助、記録など。夜勤あり。",
-    "desc_vi": "Hỗ trợ tắm/ăn/vệ sinh, ghi chép. Có ca đêm.",
-    "sample": false
-  },
-  {
-    "id": "job-002",
-    "title_ja": "訪問介護ヘルパー",
-    "title_vi": "Nhân viên chăm sóc tại nhà",
-    "company": "ケアホーム東京",
-    "city_ja": "東京都・大田区",
-    "city_vi": "Quận Ota, Tokyo",
-    "areaPref": "東京都",
-    "region": "関東",
-    "tags": [
-      "介護",
-      "パート",
-      "日勤のみ"
-    ],
-    "salary_ja": "月給 200000〜230000円",
-    "salary_vi": "Lương 200000–230000 yên/tháng",
-    "visa_friendly": true,
-    "desc_ja": "移動支援、生活援助中心。運転できる方歓迎。",
-    "desc_vi": "Hỗ trợ di chuyển, hỗ trợ sinh hoạt. Ưu tiên biết lái xe.",
-    "sample": false
-  },
-  {
-    "id": "job-003",
-    "title_ja": "介護福祉士（特定技能可）",
-    "title_vi": "Nhân viên phúc lợi điều dưỡng (có thể Tokutei Gino)",
-    "company": "ケアサポート大阪",
-    "city_ja": "大阪府・大阪市",
-    "city_vi": "TP. Osaka, Osaka",
-    "areaPref": "大阪府",
-    "region": "関西",
-    "tags": [
-      "介護",
-      "正社員",
-      "JLPT N2",
-      "特定技能"
-    ],
-    "salary_ja": "月給 270000〜320000円",
-    "salary_vi": "Lương 270000–320000 yên/tháng",
-    "visa_friendly": true,
-    "desc_ja": "リーダー候補募集。教育体制あり。",
-    "desc_vi": "Tuyển ứng viên tiềm năng leader. Có chế độ đào tạo.",
     "sample": false
   }
 ]
