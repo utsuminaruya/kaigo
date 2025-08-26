@@ -140,9 +140,11 @@ export default function App() {
   const pageSize = 50
   const total = jobs.length
   const pages = Math.max(1, Math.ceil(total / pageSize))
-  const shown = React.useMemo(() => jobs.slice((page - 1) * pageSize, page * pageSize), [jobs, page])
-
-  React.useEffect(() => { setPage(1) }, [q, filter, lang])
+  const shown = React.useMemo(
+    () => jobs.slice(0, Math.min(page * pageSize, jobs.length)),
+    [jobs, page, pageSize] 
+  )
+    React.useEffect(() => { setPage(1) }, [q, filter, lang])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-cyan-50 to-white text-slate-800">
