@@ -1,10 +1,13 @@
 import React, { useMemo, useState, useEffect } from 'react'
-import { Briefcase, MapPin, Languages, CheckCircle2, Building2, Phone, Mail, MessageSquare } from 'lucide-react'
+import { Briefcase, MapPin, Languages, CheckCircle2, Building2, Phone, Mail, MessageSquare, MessageCircle } from 'lucide-react'
+import { useRef } from 'react'
 
 // ====== 運用定数 ======
 const LINE_URL = 'https://lin.ee/vjwhNHU' // ★あなたのLINE公式URLに差し替え
 const CONTACT_TEL = '042-716-0218'
 const CONTACT_MAIL = 'mediflow1002@gmail.com'
+const MESSENGER_URL = 'https://www.facebook.com/MediflowKK'
+const ADMIN_DEFAULT = false  // 一時的に true にすると編集モードで起動
 
 // ====== 1000件スケール用：/public/jobs.json を自動読込 ======
 // ・存在すれば fetch して使う
@@ -157,21 +160,15 @@ export default function App() {
             <span className="font-bold tracking-wide text-slate-900">{t.brand}</span>
           </div>
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-2 text-sm text-slate-700">
-              <Languages className="h-4 w-4" />
-              <span>{t.lang}</span>
-              <div className="flex items-center gap-2">
-                <span className="text-xs opacity-80">{t.ja}</span>
-                <input
-                  type="checkbox"
-                  checked={lang === 'vi'}
-                  onChange={(e) => setLang(e.target.checked ? 'vi' : 'ja')}
-                  className="accent-teal-600 h-4 w-8"
-                  title="JA ⇄ VI"
-                />
-                <span className="text-xs opacity-80">{t.vi}</span>
-              </div>
-            </div>
+　　　　　　<div className="flex items-center gap-2 text-sm text-slate-700">
+　　　　　　   <Languages className="h-4 w-4" />
+　　　　　　   <div className="flex rounded-lg border overflow-hidden">
+　　　　　　     <button onClick={()=>setLang('ja')}
+　　　　　　       className={`px-2 py-1 ${lang==='ja'?'bg-teal-600 text-white':'bg-white'}`}>日本語</button>
+　　　　　　　     <button onClick={()=>setLang('vi')}
+　　　　　　　       className={`px-2 py-1 ${lang==='vi'?'bg-teal-600 text-white':'bg-white'}`}>Tiếng Việt</button>
+　　　　　　　　  </div>
+　　　　　　　 </div>           
             <a
               href={LINE_URL}
               target="_blank"
