@@ -307,6 +307,7 @@ export default function App() {
             </div>
           )}
         </div>
+        
         <p className="mt-6 text-xs text-slate-500">{t.disclaimer}</p>
       </main>
 
