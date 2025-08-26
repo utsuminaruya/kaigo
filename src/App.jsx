@@ -137,7 +137,7 @@ export default function App() {
 
   // ページング（1000件でも軽い）
   const [page, setPage] = useState(1)
-  const pageSize = 20
+  const pageSize = 50
   const total = jobs.length
   const pages = Math.max(1, Math.ceil(total / pageSize))
   const shown = React.useMemo(() => jobs.slice((page - 1) * pageSize, page * pageSize), [jobs, page])
