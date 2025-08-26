@@ -137,11 +137,11 @@ export default function App() {
 
   // ページング（1000件でも軽い）
   const [page, setPage] = useState(1)
-  const pageSize = 20
+  const pageSize = 50
   const total = jobs.length
   const pages = Math.max(1, Math.ceil(total / pageSize))
-  const shown = React.useMemo(() => jobs.slice((page - 1) * pageSize, page * pageSize), [jobs, page])
-
+  +  // “さらに読み込む”で累積的に増える表示
++  const shown = React.useMemo(() => jobs.slice(0, page * pageSize), [jobs, page, pageSize])
   React.useEffect(() => { setPage(1) }, [q, filter, lang])
 
   return (
