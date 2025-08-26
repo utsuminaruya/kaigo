@@ -285,15 +285,28 @@ export default function App() {
           ))}
         </div>
 
-        {/* ページネーション */}
+       {/* さらに読み込む／すべて表示（累積） */}
         <div className="mt-6 flex items-center justify-between">
-          <span className="text-sm text-slate-600">{total}件中 {(page-1)*pageSize+1}–{Math.min(page*pageSize,total)}件</span>
-          <div className="flex gap-2">
-            <button disabled={page<=1} onClick={()=>setPage(p=>p-1)} className="px-3 py-2 rounded-xl border border-slate-200 disabled:opacity-40">前へ</button>
-            <button disabled={page>=pages} onClick={()=>setPage(p=>p+1)} className="px-3 py-2 rounded-xl border border-slate-200 disabled:opacity-40">次へ</button>
-          </div>
+          <span className="text-sm text-slate-600">
+            {total}件中 {shown.length}件を表示
+          </span>
+          {shown.length < total && (
+            <div className="flex gap-2">
+              <button
+                onClick={() => setPage(p => p + 1)}
+                className="px-3 py-2 rounded-xl border border-slate-200 hover:bg-cyan-50"
+              >
+                さらに{pageSize}件読み込む
+              </button>
+              <button
+                onClick={() => setPage(Math.ceil(total / pageSize))}
+                className="px-3 py-2 rounded-xl border border-slate-200 hover:bg-cyan-50"
+              >
+                すべて表示
+              </button>
+            </div>
+          )}
         </div>
-
         <p className="mt-6 text-xs text-slate-500">{t.disclaimer}</p>
       </main>
 
