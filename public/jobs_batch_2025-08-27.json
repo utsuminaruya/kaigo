@@ -1,0 +1,117 @@
+[
+  {
+    "id": "real-001",
+    "title_ja": "介護職（特定技能・正社員）",
+    "title_vi": "Nhân viên chăm sóc (Tokutei Gino, nhân viên chính thức)",
+    "company": "社会福祉法人としわ会",
+    "city_ja": "愛知県・名古屋市",
+    "city_vi": "TP. Nagoya, Aichi",
+    "areaPref": "愛知県",
+    "region": "中部",
+    "tags": [
+      "特定技能OK",
+      "外国人歓迎",
+      "介護福祉士歓迎",
+      "N3+"
+    ],
+    "salary_ja": "月給 260,000〜297,500円（求人ページ記載、賞与あり）",
+    "salary_vi": "Lương 260,000–297,500 yên/tháng (có thưởng)",
+    "visa_friendly": true,
+    "desc_ja": "名古屋市の特定技能介護求人。月給26万〜29.75万円、研修期間は日給などの規定あり。詳細は募集要項を参照。",
+    "desc_vi": "Tuyển dụng Tokutei Gino tại Nagoya. Lương 260k–297.5k yên/tháng, có quy định trong thời gian đào tạo. Xem chi tiết trên trang tuyển dụng.",
+    "source_url": "https://toshiwa-kai.net/archives/2066",
+    "sample": false
+  },
+  {
+    "id": "real-002",
+    "title_ja": "介護職（特定技能）",
+    "title_vi": "Nhân viên chăm sóc (Tokutei Gino)",
+    "company": "医療法人協和会（兵庫）",
+    "city_ja": "兵庫県・神戸市",
+    "city_vi": "TP. Kobe, Hyogo",
+    "areaPref": "兵庫県",
+    "region": "関西",
+    "tags": [
+      "特定技能OK",
+      "外国人歓迎",
+      "夜勤あり",
+      "N3+"
+    ],
+    "salary_ja": "月給 150,000〜204,500円（求人により異なる）",
+    "salary_vi": "Lương 150,000–204,500 yên/tháng (tùy vị trí)",
+    "visa_friendly": true,
+    "desc_ja": "神戸市内の病院・介護施設で特定技能の介護職を募集。シフト勤務、詳細は各求人カードを参照。",
+    "desc_vi": "Tuyển dụng Tokutei Gino ngành điều dưỡng tại Kobe. Ca kíp, xem chi tiết trong từng bài đăng.",
+    "source_url": "https://mycareer-jp.com/vi/job/18087/",
+    "sample": false
+  },
+  {
+    "id": "real-003",
+    "title_ja": "介護職（特定技能・北海道千歳市）",
+    "title_vi": "Nhân viên chăm sóc (Tokutei Gino, Chitose, Hokkaido)",
+    "company": "募集元：YOLO JAPAN（千歳市の介護施設）",
+    "city_ja": "北海道・千歳市",
+    "city_vi": "TP. Chitose, Hokkaido",
+    "areaPref": "北海道",
+    "region": "北海道",
+    "tags": [
+      "特定技能OK",
+      "外国人歓迎",
+      "寮あり",
+      "N3+"
+    ],
+    "salary_ja": "月給 191,100円（求人ページ記載）",
+    "salary_vi": "Lương 191,100 yên/tháng",
+    "visa_friendly": true,
+    "desc_ja": "北海道・千歳市の特定技能介護職。外国人採用実績あり、N3相当、日本語日常会話レベル。",
+    "desc_vi": "Công việc điều dưỡng Tokutei Gino tại Chitose, Hokkaido. Có tuyển người nước ngoài, yêu cầu tiếng Nhật N3 tương đương.",
+    "source_url": "https://www.yolo-japan.com/ja/recruit/job/details/21250",
+    "sample": false
+  },
+  {
+    "id": "real-004",
+    "title_ja": "看護・介護助手（派遣・N3相当）",
+    "title_vi": "Trợ lý điều dưỡng/điều dưỡng (Haken, N3~)",
+    "company": "株式会社モリコー（掲載：YOLO JAPAN）",
+    "city_ja": "東京都・青梅市",
+    "city_vi": "TP. Ome, Tokyo",
+    "areaPref": "東京都",
+    "region": "関東",
+    "tags": [
+      "外国人歓迎",
+      "VISAサポートあり",
+      "未経験OK",
+      "交通費支給"
+    ],
+    "salary_ja": "時給 1,250円〜（求人ページ記載）",
+    "salary_vi": "Lương giờ 1,250 yên~",
+    "visa_friendly": true,
+    "desc_ja": "看護・介護助手の派遣求人。N3相当、交通費支給、オンライン面接可。",
+    "desc_vi": "Công việc trợ lý điều dưỡng/điều dưỡng (派遣). Yêu cầu N3~, có hỗ trợ đi lại, phỏng vấn online.",
+    "source_url": "https://www.yolo-japan.com/ja/recruit/job/details/22570",
+    "sample": false
+  },
+  {
+    "id": "real-005",
+    "title_ja": "介護職（ベネッセスタイルケア／特定技能 受け入れ）",
+    "title_vi": "Nhân viên chăm sóc (Benesse Style Care / chấp nhận Tokutei Gino)",
+    "company": "株式会社ベネッセスタイルケア",
+    "city_ja": "東京都ほか・全国",
+    "city_vi": "Toàn quốc (trụ sở Tokyo)",
+    "areaPref": "東京都",
+    "region": "関東",
+    "tags": [
+      "特定技能OK",
+      "外国人歓迎",
+      "日本語研修あり",
+      "住宅支援あり"
+    ],
+    "salary_ja": "月給（例）東京 206,000円〜、神奈川 206,000円〜（拠点により異なる）",
+    "salary_vi": "Ví dụ: Tokyo từ 206,000 yên/tháng; Kanagawa từ 206,000 yên/tháng (tùy cơ sở)",
+    "visa_friendly": true,
+    "desc_ja": "外国人・特定技能の受け入れと育成の仕組みを公開。勤務地は全国の有料老人ホーム等。",
+    "desc_vi": "Doanh nghiệp tiếp nhận và đào tạo người nước ngoài/ Tokutei Gino. Nhiều cơ sở trên toàn quốc.",
+    "source_url": "https://saiyo.benesse-style-care.co.jp/fresh/foreigners/",
+    "sample": false
+  }
+]
