@@ -1,13 +1,11 @@
 import React, { useMemo, useState, useEffect } from 'react'
 import { Briefcase, MapPin, Languages, CheckCircle2, Building2, Phone, Mail, MessageSquare, MessageCircle } from 'lucide-react'
 
-// ====== 連絡先／リンク設定 ======
 const LINE_URL = 'https://lin.ee/vjwhNHU'
 const MESSENGER_URL = 'https://www.facebook.com/MediflowKK'
 const CONTACT_TEL = '042-716-0218'
 const CONTACT_MAIL = 'mediflow1002@gmail.com'
 
-// ====== /public/jobs.json を自動読込（無ければ20件ダミー） ======
 function generateSampleJobs(n = 20) {
   const prefs = [
     { areaPref: '東京都', region: '関東', city_ja: '東京都・新宿区', city_vi: 'Quận Shinjuku, Tokyo' },
@@ -40,7 +38,6 @@ function generateSampleJobs(n = 20) {
   return arr
 }
 
-// ====== 多言語UI ======
 const UI = {
   ja: {
     brand: 'Mediflow',
@@ -90,7 +87,6 @@ const UI = {
   },
 }
 
-// エリア/地域フィルタ
 const FILTERS = [
   { label: 'All', type: 'all', value: 'all' },
   { label: '東京', type: 'pref', value: '東京都' },
@@ -112,7 +108,6 @@ export default function App() {
   const [filter, setFilter] = useState(FILTERS[0])
   const [jobsSrc, setJobsSrc] = useState([])
 
-  // 初回ロード
   useEffect(() => {
     fetch('/jobs.json', { cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : Promise.reject()))
@@ -120,7 +115,6 @@ export default function App() {
       .catch(() => setJobsSrc(generateSampleJobs()))
   }, [])
 
-  // 検索＋フィルタ
   const jobs = useMemo(() => {
     const key = q.trim().toLowerCase()
     return jobsSrc.filter((j) => {
@@ -142,66 +136,42 @@ export default function App() {
     })
   }, [q, filter, lang, jobsSrc])
 
-  // 累積表示（無限ロード風）
   const [page, setPage] = useState(1)
   const pageSize = 50
   const total = jobs.length
   const shown = useMemo(() => jobs.slice(0, Math.min(page * pageSize, total)), [jobs, page, total])
 
-  useEffect(() => {
-    setPage(1)
-  }, [q, filter, lang])
+  useEffect(() => { setPage(1) }, [q, filter, lang])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-cyan-50 to-white text-slate-800">
-      {/* Header */}
+      {/* Header（ロゴも編集ボタンも無し） */}
       <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-          {/* ロゴ削除 → ブランド名だけ */}
           <div className="flex items-center gap-3">
             <span className="font-bold tracking-wide text-slate-900">{t.brand}</span>
           </div>
-
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* モバイルでも常時表示の言語切替 */}
             <div className="flex items-center gap-2 text-sm text-slate-700">
               <Languages className="h-4 w-4" />
               <div className="flex rounded-xl overflow-hidden border border-slate-300">
-                <button
-                  onClick={() => setLang('ja')}
-                  className={`px-3 py-1 ${lang === 'ja' ? 'bg-teal-600 text-white' : 'bg-white text-slate-700'}`}
-                  aria-pressed={lang === 'ja'}
-                >
+                <button onClick={() => setLang('ja')}
+                  className={`px-3 py-1 ${lang === 'ja' ? 'bg-teal-600 text-white' : 'bg-white text-slate-700'}`}>
                   {t.ja}
                 </button>
-                <button
-                  onClick={() => setLang('vi')}
-                  className={`px-3 py-1 ${lang === 'vi' ? 'bg-teal-600 text-white' : 'bg-white text-slate-700'}`}
-                  aria-pressed={lang === 'vi'}
-                >
+                <button onClick={() => setLang('vi')}
+                  className={`px-3 py-1 ${lang === 'vi' ? 'bg-teal-600 text-white' : 'bg-white text-slate-700'}`}>
                   {t.vi}
                 </button>
               </div>
             </div>
-
-            {/* 問い合わせボタン */}
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-teal-600 text-white hover:bg-teal-700"
-            >
-              <MessageSquare className="h-4 w-4" />
-              LINE
+            <a href={LINE_URL} target="_blank" rel="noreferrer"
+               className="inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-teal-600 text-white hover:bg-teal-700">
+              <MessageSquare className="h-4 w-4" /> LINE
             </a>
-            <a
-              href={MESSENGER_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-blue-600 text-white hover:bg-blue-700"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Messenger
+            <a href={MESSENGER_URL} target="_blank" rel="noreferrer"
+               className="inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-blue-600 text-white hover:bg-blue-700">
+              <MessageCircle className="h-4 w-4" /> Messenger
             </a>
           </div>
         </div>
@@ -225,15 +195,10 @@ export default function App() {
               />
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
                 {FILTERS.map((f) => (
-                  <button
-                    key={f.label}
-                    onClick={() => setFilter(f)}
-                    className={`px-3 py-2 text-sm rounded-xl border ${
-                      filter.label === f.label
-                        ? 'bg-white border-teal-400 text-teal-700'
-                        : 'bg-cyan-50 border-cyan-200 text-cyan-700'
-                    } hover:bg-white`}
-                  >
+                  <button key={f.label} onClick={() => setFilter(f)}
+                          className={`px-3 py-2 text-sm rounded-xl border ${
+                            filter.label === f.label ? 'bg-white border-teal-400 text-teal-700'
+                                                     : 'bg-cyan-50 border-cyan-200 text-cyan-700'} hover:bg-white`}>
                     {f.label}
                   </button>
                 ))}
@@ -275,21 +240,15 @@ export default function App() {
                   <MapPin className="h-4 w-4 text-teal-600" /> {lang === 'ja' ? j.city_ja : j.city_vi}
                 </div>
                 <div className="text-xs text-slate-600 mt-1">
-                  <span className="mr-3">
-                    {t.area}: {j.areaPref}
-                  </span>
-                  <span>
-                    {t.region}: {j.region}
-                  </span>
+                  <span className="mr-3">{t.area}: {j.areaPref}</span>
+                  <span>{t.region}: {j.region}</span>
                 </div>
               </div>
               <div className="p-5 space-y-3">
                 <p className="text-sm text-slate-700">{lang === 'ja' ? j.desc_ja : j.desc_vi}</p>
                 <div className="flex flex-wrap gap-2">
                   {(j.tags || []).map((tg, idx) => (
-                    <span key={idx} className="rounded-xl px-2 py-1 text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">
-                      {tg}
-                    </span>
+                    <span key={idx} className="rounded-xl px-2 py-1 text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">{tg}</span>
                   ))}
                 </div>
                 <div className="text-sm text-slate-700">
@@ -297,32 +256,20 @@ export default function App() {
                   <span>{lang === 'ja' ? j.salary_ja : j.salary_vi}</span>
                 </div>
                 <div className="pt-2 flex flex-wrap gap-2 text-sm">
-                  <a
-                    href={LINE_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded-xl px-3 py-2 bg-teal-600 text-white hover:bg-teal-700"
-                  >
+                  <a href={LINE_URL} target="_blank" rel="noreferrer"
+                     className="inline-flex items-center gap-1 rounded-xl px-3 py-2 bg-teal-600 text-white hover:bg-teal-700">
                     <MessageSquare className="h-4 w-4" /> {j.sample ? t.lineCta : t.lineCtaApply}
                   </a>
-                  <a
-                    href={MESSENGER_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded-xl px-3 py-2 bg-blue-600 text-white hover:bg-blue-700"
-                  >
+                  <a href={MESSENGER_URL} target="_blank" rel="noreferrer"
+                     className="inline-flex items-center gap-1 rounded-xl px-3 py-2 bg-blue-600 text-white hover:bg-blue-700">
                     <MessageCircle className="h-4 w-4" /> {t.msgrCta}
                   </a>
-                  <a
-                    href={`tel:${CONTACT_TEL}`}
-                    className="inline-flex items-center gap-1 rounded-xl px-3 py-2 bg-white border border-slate-200 hover:bg-cyan-50"
-                  >
+                  <a href={`tel:${CONTACT_TEL}`}
+                     className="inline-flex items-center gap-1 rounded-xl px-3 py-2 bg-white border border-slate-200 hover:bg-cyan-50">
                     <Phone className="h-4 w-4 text-teal-600" /> {CONTACT_TEL}
                   </a>
-                  <a
-                    href={`mailto:${CONTACT_MAIL}`}
-                    className="inline-flex items-center gap-1 rounded-xl px-3 py-2 bg-white border border-slate-200 hover:bg-cyan-50"
-                  >
+                  <a href={`mailto:${CONTACT_MAIL}`}
+                     className="inline-flex items-center gap-1 rounded-xl px-3 py-2 bg-white border border-slate-200 hover:bg-cyan-50">
                     <Mail className="h-4 w-4 text-teal-600" /> {CONTACT_MAIL}
                   </a>
                 </div>
@@ -331,23 +278,16 @@ export default function App() {
           ))}
         </div>
 
-        {/* さらに読み込む／すべて表示（累積） */}
         <div className="mt-6 flex items-center justify-between">
-          <span className="text-sm text-slate-600">
-            {total}件中 {shown.length}件を表示
-          </span>
+          <span className="text-sm text-slate-600">{total}件中 {shown.length}件を表示</span>
           {shown.length < total && (
             <div className="flex gap-2">
-              <button
-                onClick={() => setPage((p) => p + 1)}
-                className="px-3 py-2 rounded-xl border border-slate-200 hover:bg-cyan-50"
-              >
+              <button onClick={() => setPage((p) => p + 1)}
+                      className="px-3 py-2 rounded-xl border border-slate-200 hover:bg-cyan-50">
                 さらに{pageSize}件読み込む
               </button>
-              <button
-                onClick={() => setPage(Math.ceil(total / pageSize))}
-                className="px-3 py-2 rounded-xl border border-slate-200 hover:bg-cyan-50"
-              >
+              <button onClick={() => setPage(Math.ceil(total / pageSize))}
+                      className="px-3 py-2 rounded-xl border border-slate-200 hover:bg-cyan-50">
                 すべて表示
               </button>
             </div>
@@ -357,27 +297,18 @@ export default function App() {
         <p className="mt-6 text-xs text-slate-500">{t.disclaimer}</p>
       </main>
 
-      {/* Floating CTA（モバイルで押しやすいよう2段） */}
+      {/* Floating CTA */}
       <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 flex flex-col gap-2">
-        <a
-          href={LINE_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-full shadow-lg bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 inline-flex items-center gap-2"
-        >
+        <a href={LINE_URL} target="_blank" rel="noreferrer"
+           className="rounded-full shadow-lg bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 inline-flex items-center gap-2">
           <MessageSquare className="h-5 w-5" /> LINE
         </a>
-        <a
-          href={MESSENGER_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-full shadow-lg bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 inline-flex items-center gap-2"
-        >
+        <a href={MESSENGER_URL} target="_blank" rel="noreferrer"
+           className="rounded-full shadow-lg bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 inline-flex items-center gap-2">
           <MessageCircle className="h-5 w-5" /> Messenger
         </a>
       </div>
 
-      {/* Footer */}
       <footer className="py-10 mt-8 border-t border-slate-200">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
